@@ -36,13 +36,16 @@ export const getAllUsers = async(req, res) => {
     try {
         const allUsers = await db.user.findMany({
             where:{
-                role: "USER"
+                role: {
+                    in: ['USER','OWNER']
+                }
             },
             select:{
                 id: true,
                 name: true,
                 email: true,
-                role: true
+                role: true,
+                address: true
             }
         })
 

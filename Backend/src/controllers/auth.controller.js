@@ -17,7 +17,7 @@ export const register = async(req, res) => {
 
         if(existingUser){
             return res.status(400).json({
-                error: "User already exists"
+                message: "User already exists"
             })
         }
 
@@ -49,7 +49,7 @@ export const register = async(req, res) => {
         console.log("Error in Creating the user", error);
         res.status(500).json({
             success: false,
-            error: "Error Creating User"
+            message: "Error Creating User"
         })
     }
 }
